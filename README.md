@@ -53,18 +53,30 @@ Depois abra o arquivo `index.html` no navegador (duplo-clique) e navegue:
 ## Estrutura
 
 ```
-index.html            menu de listas
-lista01.html          lista de exercícios da Lista 01
-lista01-ex01.html     página que roda o exercício 01
-src/                  código TypeScript (um .ts por exercício)
-dist/                 JavaScript compilado (gerado pelo build — não versionar)
-styles.css            estilo das páginas
-tsconfig.json         configuração do compilador
+index.html                     menu de listas
+styles.css                     estilo das páginas
+src/                           código TypeScript
+  lista01/
+    ex01.ts                    código do exercício 01
+listas/                        páginas HTML, organizadas por lista
+  lista01/
+    index.html                 lista de exercícios da Lista 01
+    ex01.html                  página que roda o exercício 01
+dist/                          JavaScript compilado (gerado pelo build — não versionar)
+  lista01/
+    ex01.js
+tsconfig.json                  configuração do compilador
 ```
+
+O `dist/` espelha automaticamente a estrutura de pastas do `src/`.
 
 ## Como adicionar um novo exercício
 
-1. Crie `src/lista01-ex02.ts` com o código.
-2. Crie `lista01-ex02.html` (copie o `ex01` e troque o `<script src>`).
-3. Adicione um botão em `lista01.html` apontando pra nova página.
+1. Crie `src/lista01/ex02.ts` com o código.
+2. Crie `listas/lista01/ex02.html` (copie o `ex01.html`; o `<script>` deve apontar
+   para `../../dist/lista01/ex02.js`).
+3. Adicione um botão em `listas/lista01/index.html` apontando para `ex02.html`.
 4. Rode `npm run build`.
+
+Para uma nova lista, repita o padrão criando `src/lista02/` e `listas/lista02/`,
+e adicione um botão em `index.html`.
