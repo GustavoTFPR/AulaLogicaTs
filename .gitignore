@@ -1,8 +1,9 @@
 # Dependências
 node_modules/
 
-# Saída de compilação
-dist/
+# JavaScript gerado pelo tsc (fica ao lado dos .ts, mas não é versionado)
+listas/**/*.js
+listas/**/*.js.map
 
 # Logs
 *.log
